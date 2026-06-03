@@ -1,0 +1,29 @@
+{
+  "skill_name": "ableton-live-extensions",
+  "evals": [
+    {
+      "id": 0,
+      "name": "warp-context-menu",
+      "prompt": "I'm building an Ableton Live extension with the new Ableton Extensions SDK. I want to add a right-click menu item on audio clips called \"Cycle Warp Mode\" that, each time it's clicked, advances the clip's warp mode to the next one (Beats -> Tones -> Texture -> Repitch -> Complex -> Complex Pro -> back to Beats). Write the extension.ts for me.",
+      "expected_output": "A src/extension.ts that exports activate(), calls initialize(activation, \"1.0.0\"), registers a command that resolves the handle via getObjectFromHandle to an AudioClip, and cycles warpMode using an explicit array of the 6 WarpMode values (NOT modulo 6, since the enum skips 5). Registers a context menu action with scope \"AudioClip\".",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 1,
+      "name": "batch-rename-undo",
+      "prompt": "Using the Ableton Live Extensions SDK, write a command for my extension that renames every track in the Live Set to \"Track 1\", \"Track 2\", \"Track 3\" and so on, in order. Crucially, the whole rename must be a SINGLE step in Live's undo history so the user can undo it all at once. Give me the extension.ts.",
+      "expected_output": "extension.ts using context.withinTransaction(() => { ... }) wrapping a synchronous loop over context.application.song.tracks assigning track.name. Should NOT await inside the transaction (renames are synchronous property sets). Correct access path application.song.tracks.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "modal-rename-dialog",
+      "prompt": "I want my Ableton Live extension to show a small popup dialog with a text box so the user can rename a clip. When they right-click a clip and choose \"Rename...\", open a modal dialog with an input field, and when they submit, set the clip's name. I'm using the Ableton Extensions SDK. Give me both the extension.ts and the HTML for the dialog.",
+      "expected_output": "extension.ts uses context.ui.showModalDialog with a data:text/html URL (encodeURIComponent), awaits the returned string, JSON.parses it, sets clip.name, resolves handle as Clip. The HTML posts a message {method:\"close_and_send\", params:[JSON.stringify(result)]} via window.webkit.messageHandlers.live or window.chrome.webview, with a Cancel path. Registers context menu on MidiClip/AudioClip.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
