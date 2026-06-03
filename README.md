@@ -36,13 +36,16 @@ This repo is packaged as a **Claude Code plugin marketplace**, so it can be inst
 
 (Or from the CLI: `claude plugin marketplace add flapflap/ableton-extensions-claude-skill` then `claude plugin install ableton-live-extensions@ableton-extensions`.)
 
-**As a standalone skill.** Copy just the skill folder into your skills directory:
+**As a standalone skill.** Copy just the skill folder straight into your skills directory — no clone needed (works with macOS/BSD and GNU `tar`):
 
 ```bash
-git clone https://github.com/flapflap/ableton-extensions-claude-skill.git /tmp/aleskill
-cp -r /tmp/aleskill/plugins/ableton-live-extensions/skills/ableton-live-extensions \
-  ~/.claude/skills/ableton-live-extensions
+mkdir -p ~/.claude/skills/ableton-live-extensions
+curl -fsSL https://codeload.github.com/flapflap/ableton-extensions-claude-skill/tar.gz/refs/heads/main \
+  | tar -xz --strip-components=5 -C ~/.claude/skills/ableton-live-extensions \
+    'ableton-extensions-claude-skill-main/plugins/ableton-live-extensions/skills/ableton-live-extensions'
 ```
+
+For a project-scoped install, swap the destination for `.claude/skills/ableton-live-extensions` inside your repo. Or, if you'd rather clone the whole repo, the skill lives at `plugins/ableton-live-extensions/skills/ableton-live-extensions/` — copy that folder wherever you keep skills.
 
 Either way, the skill triggers automatically when you mention Ableton Live extensions, the SDK, or scripting Live (tracks, clips, devices, warp modes, context-menu actions, dialogs, etc.).
 
