@@ -1,0 +1,18 @@
+{
+  "name": "ableton-extensions",
+  "owner": {
+    "name": "Benoit Milgram",
+    "url": "https://github.com/flapflap"
+  },
+  "plugins": [
+    {
+      "name": "ableton-live-extensions",
+      "source": "./plugins/ableton-live-extensions",
+      "description": "Build, scaffold, and debug Ableton Live extensions with the official Ableton Extensions SDK (TypeScript). SDK mental model, full API reference, project setup & .ablx packaging, WebView UI + design guide, and recipes.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Benoit Milgram"
+      }
+    }
+  ]
+}

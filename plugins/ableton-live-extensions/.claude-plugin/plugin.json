@@ -1,0 +1,23 @@
+{
+  "name": "ableton-live-extensions",
+  "displayName": "Ableton Live Extensions SDK",
+  "version": "1.0.0",
+  "description": "Build, scaffold, and debug Ableton Live extensions with the official Ableton Extensions SDK (TypeScript/JavaScript running in Node.js alongside Live). Includes the SDK mental model, a full API reference, project setup & .ablx packaging, WebView UI + Ableton design guide, and copy-adaptable recipes.",
+  "author": {
+    "name": "Benoit Milgram",
+    "url": "https://github.com/flapflap"
+  },
+  "homepage": "https://github.com/flapflap/ableton-extensions-claude-skill",
+  "repository": "https://github.com/flapflap/ableton-extensions-claude-skill",
+  "license": "MIT",
+  "keywords": [
+    "ableton",
+    "ableton-live",
+    "extensions",
+    "ableton-extensions-sdk",
+    "music",
+    "daw",
+    "typescript",
+    "skill"
+  ]
+}
